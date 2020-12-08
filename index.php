@@ -3,7 +3,11 @@
 $show_complete_tasks = rand(0, 1);
 // простой массив проектов
 $projects = [
-    'Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'
+    'Входящие', 
+    'Учеба', 
+    'Работа', 
+    'Домашние дела', 
+    'Авто',
 ];
 // двумерный массив задач
 $tasks = [
@@ -116,7 +120,7 @@ $tasks = [
                     </nav>
 
                     <label class="checkbox">
-                        <!--добавить сюда атрибут "checked", если переменная $show_complete_tasks равна единице-->
+
 <input class="checkbox__input visually-hidden show__completed" type="checkbox" <?php if ($show_complete_tasks == 1) : ?>checked<?php endif; ?>>
                         <span class="checkbox__text">Показывать выполненные</span>
                     </label>
@@ -125,7 +129,11 @@ $tasks = [
                 <table class="tasks">
                     <?php foreach ($tasks as $task): ?>
                         <?php if (isset($task['completed'])): ?>
-                            <?php if ($show_complete_tasks === 0 && $task['completed']): continue ?><?php endif; ?>
+                            <?php
+                                if ($show_complete_tasks === 0 && $task['completed']) {
+                                    continue;
+                                }
+                            ?>
                         <tr class="tasks__item task <?php if ($task['completed']): ?>task--completed<?php endif; ?>">
                         <?php endif; ?>
                             <td class="task__select">
@@ -142,7 +150,7 @@ $tasks = [
                             <td class="task__date"></td>
                         </tr>
                     <?php endforeach; ?>
-                    <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
+
                     <?php if($show_complete_tasks == 1) : ?>
                     <tr class="tasks__item task task--completed">
                         <td class="task__select">
