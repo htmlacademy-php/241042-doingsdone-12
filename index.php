@@ -49,14 +49,14 @@ $tasks = [
     ],
 ];
 
-function getProjectTasks(array $task_list, string $project_name) {
+function getProjectTasks(array $task_list, string $project_name): int{
     $count = 0;
     foreach ($task_list as $task) {
         if (isset($task['project']) && $task['project'] === $project_name) {
             $count++;
         }
     }
-    return(int) $count;
+    return $count;
 }
 ?>
 <!DOCTYPE html>
